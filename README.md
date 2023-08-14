@@ -1,1 +1,21 @@
 # Automate-Record-Ingestion-in-SQL-Database-Project
+
+### Instructions:
+For this project, you need SQL SERVER software in your system. Create notepad files and save them with the name of the table you want to create in SQL Server. Save them in ‘AllFiles’ folder inside the ‘Filetext’ Folder, inside C drive.
+Save ‘Pad_bulk_import’ file inside’ Filetext’ folder in c drive.
+The name of your file will be the name of your table. For example the name of the file in the folder is 'MyEmployeeTable' then the name of the table will also be 'MyEmployeeTable'.
+The first line in notepad will be your Schema name.
+The second line in notepad will be your column names of the table. The column nmes are separated by comma (‘,’) separator. Don’t forget to put a comma after the last column name too.
+Start filling the rows of your table from the third line. Separate the data using comma (‘,’). Put comma after the last row entry too.
+Press enter only to create rows, Otherwise don’t.
+### Explanation:
+Data is dumped from various resources and platforms in .txt format.
+xp_xmdshell makes the job easy to run any command line process and can also embed within stored procedures, jobs or batch processing. This option is now enabled by 1 using Master Database
+My job is to collect the data from files present in the folder and import into SQL Server. OPENROWSET is a T-SQL function that allows for reading data from many sources including using the SQL Server's BULK import capability. One of the useful features of the BULK provider is its ability to read individual files from the file system into SQL Server, such as loading a data from a text file into a SQL Server table.
+All the files are imported from the folder by creating a temporary table in Temp database with two columns. First column is an identity function for generating the numbers sequntially, the second column consists all the remaining data of the '.txt' files.
+In User defined database 'SQL Studies' we create a table 'Project' with two columns and insert data from temporary table into Project table using Formatfile.
+The files from the folder are now residing in Project table as rows and columns.
+Now tables are created dynamically with each record in Project table.
+The second record in Project table will dynamically be created as the column names of the table.
+System functions like Charindex(), Substring() etc are used to seggregate the columns within the rows .
+To maintain Data integraity and avoid invalid data insertion, the system functions patindex() and substring() are used.
